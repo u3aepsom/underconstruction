@@ -162,6 +162,25 @@
                 Newsletters
             </button>
 
+            <!-- An algorithm is used to display recent newsletters for the past three months.
+            Newsletter files must be named "u3aepsomnewsletterX.pdf" where X is the month number from 1 to 12 
+            for Jan to Dec with no preceding zero. The file name is case sensitive and must all be lower case.
+            -->
+
+            <a href="u3aepsom" onclick="location.href=this.href + lastlastMonthFilename;" target="_blank">
+                <h4>Prior to last newsletter</h4>
+            </a>
+
+            <a href="u3aepsom" onclick="location.href=this.href + lastMonthFilename;" target="_blank">
+                <h4>Last newsletter</h4>
+            </a>
+
+            <a href="u3aepsom" onclick="location.href=this.href + currentMonthFilename;" target="_blank">
+                <h4>Latest newsletter</h4>
+            </a>
+
+            <!-- These are original hard-coded selection codes
+
             <a href="U3A Epsom Newsletter Aug 2024.pdf" target="_blank">
                 <h4>August 2024 newsletter</h4>
             </a>
@@ -170,16 +189,49 @@
             </a>
             <a href="U3A Epsom Newsletter Oct 2024.pdf" target="_blank">
                 <h4>October 2024 newsletter</h4>
-            </a>
+            </a> -->
             <br>
 
         </div>
     </div>
 
-
-
 </body>
 
+<script>
 
+    const currentDate = new Date();
+    console.log(currentDate);
+    let currentMonth = currentDate.getMonth() + 1;
+    console.log(currentMonth);
+
+    let lastMonth = currentMonth - 1;
+    console.log(lastMonth);
+
+    let lastlastMonth = currentMonth - 2;
+    console.log(lastlastMonth);
+
+    if (currentMonth === 12) {
+        currentMonth = 11; lastMonth = 10; lastlastMonth = 9;
+    } else if (currentMonth === 1) {
+        currentMonth = 11; lastMonth = 10; lastlastMonth = 9;
+    } else if (currentMonth === 2) {
+        currentMonth = 2; lastMonth = 11; lastlastMonth = 10;
+    } else if (currentMonth === 3) {
+        currentMonth = 3; lastMonth = 2; lastlastMonth = 11;
+    }
+
+    console.log(currentMonth);
+    let currentMonthFilename = 'newsletter' + currentMonth + '.' + 'pdf'
+    console.log(currentMonthFilename);
+
+    console.log(lastMonth);
+    let lastMonthFilename = 'newsletter' + lastMonth + '.' + 'pdf'
+    console.log(lastMonthFilename);
+
+    console.log(lastlastMonth);
+    let lastlastMonthFilename = 'newsletter' + lastlastMonth + '.' + 'pdf'
+    console.log(lastlastMonthFilename);
+
+</script>
 
 </html>
