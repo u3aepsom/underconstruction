@@ -3,19 +3,18 @@
 
 <head>
     <meta charset="utf-8">
-    <title>U3A Epsom</title>
+    <title>U3A Epsom underconstruction</title>
     <!-- <meta name="description" content="U3A Epsom home page">
     <meta name="keywords" content="u3a epsom, u3aepsom, u3aepsomnz, membership, newsletter">
  -->
 
     <style>
-        button {
-            background-color: rgb(89, 0, 255);
-            color: aliceblue;
-            font-family: Arial;
-            font-size: larger;
-            width: 350px;
-            height: 40px;
+        .div-wholepage {
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 248px;
+            /* background-color: aliceblue; */
         }
 
         .wide-button {
@@ -29,12 +28,13 @@
             margin-bottom: 20px;
         }
 
-        .div-wholepage {
-            width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 248px;
-            /* background-color: aliceblue; */
+        button {
+            background-color: rgb(89, 0, 255);
+            color: aliceblue;
+            font-family: Arial;
+            font-size: larger;
+            width: 350px;
+            height: 40px;
         }
 
         .text {
@@ -217,7 +217,7 @@
     let lastlastMonth = currentMonth - 2;
     console.log(lastlastMonth);
 
-    /* To delay current month newsletter to be released by three days. */
+    /* To delay current month newsletter to be released by three days. This also allows time for the new newsletter to be uploaded. */
 
     if (today < 4) {
         currentMonth = currentMonth - 1;
