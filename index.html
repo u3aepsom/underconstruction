@@ -199,7 +199,7 @@
             </button>
             <br><br>
 
-            <!-- An algorithm is used to post recent newsletters for the past three months. Newsletter pdf files must be named "u3aepsomnewsletterX.pdf" where X is the month number from 1 to 12 for Jan to Dec with no preceding zero. The file name is case sensitive and must all be lower case. -->
+            <!-- An algorithm is used to post recent newsletters for the past five months. Newsletter pdf files must be named "u3aepsomnewsletterX.pdf" where X is the month number from 1 to 12 for Jan to Dec with no preceding zero. The file name is case sensitive and must all be lower case. -->
 
             <div id="lastfour-pdf-links"></div>
 
@@ -330,7 +330,7 @@
 
 
 
-    // These are codes generated from GPTChat to form the href link to the lastest three newsletters to be posted. This solves the problem of v1 for not opening the pdfs in a new tab despite having the target = "_blank"; in the href. //
+    // These are codes generated from GPTChat to form the href link to the lastest five newsletters to be posted. This solves the problem of v1 for not opening the pdfs in a new tab despite having the target = "_blank"; in the href. //
 
     const lastfourpdfContainer = document.getElementById("lastfour-pdf-links");
     const lastfourlink = document.createElement("a");
