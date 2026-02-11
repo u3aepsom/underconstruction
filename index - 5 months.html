@@ -69,7 +69,20 @@
             font-family: Arial;
         }
 
-                           
+       
+        #lastfour-pdf-links {
+            font-family: Arial;
+            font-size: large;
+            font-weight: bold;
+            color: rgb(14, 4, 43);
+        }
+       
+        #lastthree-pdf-links {
+            font-family: Arial;
+            font-size: large;
+            font-weight: bold;
+            color: rgb(14, 4, 43);
+        }                
        
         #lastlast-pdf-links {
             font-family: Arial;
@@ -105,12 +118,15 @@
         </div>
 
         <h2>
-            This site is under construction<br>
+            This site is under construction v2<br>
             It is not the official website of U3A Epsom<br>
         </h2>
 
         <div class="wide-button">
             <button class="wide-button">
+                <a href="noticeboard.html" style="text-decoration: none;">Notice board &emsp; &emsp; </a>
+                <a href="committee.html" style="text-decoration: none;">Committee &emsp; &emsp; </a>
+                <a href="group.html" style="text-decoration: none;">Interest groups &emsp; &emsp;</a>
                 <a href="aboutus.html" style="text-decoration: none;">About us</a>
             </button>
         </div>
@@ -128,7 +144,7 @@
 
             <P class="text">
                 President<br>
-                Ian Jost<br>
+                Duncan MacDonald<br>
                 <a href="mailto: president.u3aepsom@gmail.com">
                     email: president.u3aepsom@gmail.com</a><br>
                 <br>
@@ -183,8 +199,12 @@
             </button>
             <br><br>
 
-            <!-- An algorithm is used to post recent newsletters for the past three months. Newsletter pdf files must be named "u3aepsomnewsletterX.pdf" where X is the month number from 1 to 12 for Jan to Dec with no preceding zero. The file name is case sensitive and must all be lower case. -->
-                                
+            <!-- An algorithm is used to post recent newsletters for the past five months. Newsletter pdf files must be named "u3aepsomnewsletterX.pdf" where X is the month number from 1 to 12 for Jan to Dec with no preceding zero. The file name is case sensitive and must all be lower case. -->
+
+            <div id="lastfour-pdf-links"></div>
+
+            <div id="lastthree-pdf-links"></div>
+                     
             <div id="lastlast-pdf-links"></div>
 
             <div id="last-pdf-links"></div>
@@ -198,7 +218,7 @@
 
 <script>
 
-    /*  Get the current month and date. If entered manually for testing, date format is 'yyyy-m-d' with single quotes. Enter the date for testing inside the new Date brackets.
+    /*  Get the current month and date. If entered manually for testing, date format is 'yyyy-m-d' with single quotes.
     Jan is 0, therefore getMonth has to add 1 to correspond with the file name. */
 
     const currentDate = new Date();
@@ -206,7 +226,7 @@
     const today = currentDate.getDate();
     console.log(today);
 
-    /* Three newsletters will be posted. The current one based on the current month plus two preceding ones. */
+    /* Five newsletters will be posted. The current one based on the current month plus four preceding ones. */
 
     let currentMonth = currentDate.getMonth() + 1;
     console.log(currentMonth);
@@ -217,7 +237,12 @@
     let lastlastMonth = currentMonth - 2;
     console.log(lastlastMonth);
 
-   
+    let lastthreeMonth = currentMonth - 3;
+    console.log(lastthreeMonth);
+
+    let lastfourMonth = currentMonth - 4;
+    console.log(lastfourMonth);
+
     /* To delay current month newsletter to be posted by three days. This also allows time for the new newsletter to be uploaded. */
 
     if (today < 4) {
@@ -227,21 +252,28 @@
         console.log(lastMonth);
         lastlastMonth = lastlastMonth - 1;
         console.log(lastlastMonth);
-        }
+        lastthreeMonth = lastthreeMonth - 1;
+        console.log(lastthreeMonth);
+        lastfourMonth = lastfourMonth - 1;
+        console.log(lastfourMonth);
+    }
 
     /* There is no newsletter for Jan. So the newsletters to be posted have to be adjusted to show only those available. */
 
     if (currentMonth === 0) {
-        currentMonth = 12; lastMonth = 11; lastlastMonth = 10; 
+        currentMonth = 12; lastMonth = 11; lastlastMonth = 10; lastthreeMonth = 9; lastfourMonth = 8;
     } else if (currentMonth === 1) {
-        currentMonth = 12; lastMonth = 11; lastlastMonth = 10; 
+        currentMonth = 12; lastMonth = 11; lastlastMonth = 10; lastthreeMonth = 9; lastfourMonth = 8;
     } else if (currentMonth === 2) {
-        currentMonth = 2; lastMonth = 12; lastlastMonth = 11; 
+        currentMonth = 2; lastMonth = 12; lastlastMonth = 11; lastthreeMonth = 10; lastfourMonth = 9;
     } else if (currentMonth === 3) {
-        currentMonth = 3; lastMonth = 2; lastlastMonth = 12; 
+        currentMonth = 3; lastMonth = 2; lastlastMonth = 12; lastthreeMonth = 11; lastfourMonth = 10;
+    } else if (currentMonth === 4) {
+        currentMonth = 4; lastMonth = 3; lastlastMonth = 2; lastthreeMonth = 12; lastfourMonth = 11;
+    } else if (currentMonth === 5) {
+        currentMonth = 5; lastMonth = 4; lastlastMonth = 3; lastthreeMonth = 2; lastfourMonth = 12;
     }
 
-  /* Construct the newsletter pdf file names */
 
     let currentMonthFilename = 'u3aepsomnewsletter' + currentMonth + '.pdf'
     console.log(currentMonthFilename);
@@ -252,12 +284,20 @@
     let lastlastMonthFilename = 'u3aepsomnewsletter' + lastlastMonth + '.pdf'
     console.log(lastlastMonthFilename);
 
-    /* Initialise variables for newsletter names */
+    let lastthreeMonthFilename = 'u3aepsomnewsletter' + lastthreeMonth + '.pdf'
+    console.log(lastthreeMonthFilename);
+
+    let lastfourMonthFilename = 'u3aepsomnewsletter' + lastfourMonth + '.pdf'
+    console.log(lastfourMonthFilename);
+
 
     let currentMonthNslName = 'current';
     let lastMonthNslName = 'last';
     let lastlastMonthNslName = 'lastlast';
-    
+    let lastthreeMonthNslName = 'lastthree';
+    let lastfourMonthNslName = 'lastfour';
+
+
 
     /* This array is to generate a name for the newsletter of a certain month. The first value is indexed as 0. Therefore the first array value is a dummy 'Null' to correspond to the filename. */
 
@@ -283,12 +323,35 @@
     console.log(lastMonthNslName);
     lastlastMonthNslName = (nslNameArray[lastlastMonth]);
     console.log(lastlastMonthNslName);
-    
+    lastthreeMonthNslName = (nslNameArray[lastthreeMonth]);
+    console.log(lastthreeMonthNslName);
+    lastfourMonthNslName = (nslNameArray[lastfourMonth]);
+    console.log(lastfourMonthNslName);
 
 
-    // These are codes generated from GPTChat to form the href link to the lastest five newsletters to be posted. This solves the problem of for not opening the pdfs in a new tab despite having the target = "_blank"; in the href. //
 
-       
+    // These are codes generated from GPTChat to form the href link to the lastest five newsletters to be posted. This solves the problem of v1 for not opening the pdfs in a new tab despite having the target = "_blank"; in the href. //
+
+    const lastfourpdfContainer = document.getElementById("lastfour-pdf-links");
+    const lastfourlink = document.createElement("a");
+    lastfourlink.href = lastfourMonthFilename;
+    lastfourlink.textContent = lastfourMonthNslName;
+    lastfourlink.target = "_blank"; // Open in a new tab
+    lastfourpdfContainer.appendChild(lastfourlink);
+    console.log(lastfourlink);
+    lastfourpdfContainer.appendChild(document.createElement("br",));
+    lastfourpdfContainer.appendChild(document.createElement("br",));
+
+    const lastthreepdfContainer = document.getElementById("lastthree-pdf-links");
+    const lastthreelink = document.createElement("a");
+    lastthreelink.href = lastthreeMonthFilename;
+    lastthreelink.textContent = lastthreeMonthNslName;
+    lastthreelink.target = "_blank"; // Open in a new tab
+    lastthreepdfContainer.appendChild(lastthreelink);
+    console.log(lastthreelink);
+    lastthreepdfContainer.appendChild(document.createElement("br",));
+    lastthreepdfContainer.appendChild(document.createElement("br",));
+
     const lastlastpdfContainer = document.getElementById("lastlast-pdf-links");
     const lastlastlink = document.createElement("a");
     lastlastlink.href = lastlastMonthFilename;
