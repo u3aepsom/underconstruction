@@ -13,7 +13,7 @@
             width: 1000px;
             margin-left: auto;
             margin-right: auto;
-            padding-left: 248px;
+            padding-left: 261px;
             /* background-color: aliceblue; */
         }
 
@@ -22,7 +22,6 @@
             color: aliceblue;
             font-family: Arial;
             font-size: large;
-            font-weight: bold;
             width: 753px;
             height: 40px;
             margin-bottom: 20px;
@@ -55,22 +54,14 @@
             align: center;
         }
 
-        .div-officers {
+        .div-panel {
             display: inline-block;
             width: 400px;
             vertical-align: top;
             font-family: Arial;
         }
 
-        .div-library {
-            display: inline-block;
-            width: 400px;
-            vertical-align: top;
-            font-family: Arial;
-        }
 
-                           
-       
         #lastlast-pdf-links {
             font-family: Arial;
             font-size: large;
@@ -111,14 +102,13 @@
 
         <div class="wide-button">
             <button class="wide-button">
-               <!-- <a href="committee.html" style="text-decoration: none;">Committee 
-                &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;</a> -->
-
-                <!-- <a href="committee 2026.pdf" target="_blank"; 
-                style="text-decoration: none;">Committee &emsp; &emsp; &emsp; &emsp; 
-                &emsp; &emsp;</a> -->   
-
-                <a href="aboutu3a.html" style="text-decoration: none;">About U3A</a>
+                <a href="index.html" style="text-decoration: none;">Home
+                    &emsp; &emsp; &emsp; &emsp; &emsp;</a>
+                <a href="aboutu3a.html" style="text-decoration: none;">About U3A
+                    &emsp; &emsp; &emsp; &emsp; &emsp;</a>
+                <a href="aboutus.html" style="text-decoration: none;">About us
+                    &emsp; &emsp; &emsp; &emsp; &emsp;</a>
+                <a href="joinus.html" style="text-decoration: none;">Join us</a>
             </button>
         </div>
 
@@ -128,7 +118,7 @@
             <br>
         </div>
 
-        <div class="div-officers">
+        <div class="div-panel">
             <button>
                 Officers
             </button>
@@ -164,13 +154,13 @@
             </P>
         </div>
 
-        <div class="div-library">
+        <div class="div-panel">
             <button>
                 Library
             </button>
 
             <a href="U3A Epsom membership application form 2025.pdf" target="_blank">
-                <h4>&bigstar;&bigstar; Membership application form &bigstar;&bigstar;</h4>
+                <h4>&bigstar; &bigstar; Membership application form &bigstar; &bigstar;</h4>
             </a>
             <a href="History booklet.pdf" target="_blank">
                 <h4>U3A Epsom history 1991-2016</h4>
@@ -191,7 +181,7 @@
             <br><br>
 
             <!-- An algorithm is used to post recent newsletters for the past three months. Newsletter pdf files must be named "u3aepsomnewsletterX.pdf" where X is the month number from 1 to 12 for Jan to Dec with no preceding zero. The file name is case sensitive and must all be lower case. -->
-                                
+
             <div id="lastlast-pdf-links"></div>
 
             <div id="last-pdf-links"></div>
@@ -224,7 +214,7 @@
     let lastlastMonth = currentMonth - 2;
     console.log(lastlastMonth);
 
-   
+
     /* To delay current month newsletter to be posted by three days. This also allows time for the new newsletter to be uploaded. */
 
     if (today < 4) {
@@ -234,21 +224,21 @@
         console.log(lastMonth);
         lastlastMonth = lastlastMonth - 1;
         console.log(lastlastMonth);
-        }
+    }
 
     /* There is no newsletter for Jan. So the newsletters to be posted have to be adjusted to show only those available. */
 
     if (currentMonth === 0) {
-        currentMonth = 12; lastMonth = 11; lastlastMonth = 10; 
+        currentMonth = 12; lastMonth = 11; lastlastMonth = 10;
     } else if (currentMonth === 1) {
-        currentMonth = 12; lastMonth = 11; lastlastMonth = 10; 
+        currentMonth = 12; lastMonth = 11; lastlastMonth = 10;
     } else if (currentMonth === 2) {
-        currentMonth = 2; lastMonth = 12; lastlastMonth = 11; 
+        currentMonth = 2; lastMonth = 12; lastlastMonth = 11;
     } else if (currentMonth === 3) {
-        currentMonth = 3; lastMonth = 2; lastlastMonth = 12; 
+        currentMonth = 3; lastMonth = 2; lastlastMonth = 12;
     }
 
-  /* Construct the newsletter pdf file names */
+    /* Construct the newsletter pdf file names */
 
     let currentMonthFilename = 'u3aepsomnewsletter' + currentMonth + '.pdf'
     console.log(currentMonthFilename);
@@ -264,7 +254,7 @@
     let currentMonthNslName = 'current';
     let lastMonthNslName = 'last';
     let lastlastMonthNslName = 'lastlast';
-    
+
 
     /* This array is to generate a name for the newsletter of a certain month. The first value is indexed as 0. Therefore the first array value is a dummy 'Null' to correspond to the filename. */
 
@@ -290,12 +280,12 @@
     console.log(lastMonthNslName);
     lastlastMonthNslName = (nslNameArray[lastlastMonth]);
     console.log(lastlastMonthNslName);
-    
 
 
-    // These are codes generated from GPTChat to form the href link to the lastest five newsletters to be posted. This solves the problem of for not opening the pdfs in a new tab despite having the target = "_blank"; in the href. //
 
-       
+    // These are codes generated from GPTChat to form the href link to the lastest five newsletters to be posted. This solves the problem of not opening the pdfs in a new tab despite having the target = "_blank"; in the href. //
+
+
     const lastlastpdfContainer = document.getElementById("lastlast-pdf-links");
     const lastlastlink = document.createElement("a");
     lastlastlink.href = lastlastMonthFilename;
